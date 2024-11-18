@@ -18,8 +18,8 @@ jobs:
     steps:          
       - name: Show Info
         run: |
-          echo "Nombre del evento: ${{ github.event.name }}"
-          echo "Ref: ${{ github.action_ref }}"
+          echo "Nombre del evento: ${{ github.event_name }}"
+          echo "Ref: ${{ github.ref_name }}"
           echo "SHA: ${{ github.sha }}"
           echo "Actor: ${{ github.actor }}"
           echo "Flujo de trabajo: ${{ github.workflow }}"
