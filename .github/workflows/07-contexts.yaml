@@ -1,0 +1,34 @@
+name: 07 - Contexts
+on:
+  push:
+  workflow_dispatch:
+      inputs:
+        MY_VAR:
+          required: true
+          type: string
+        ORG_VAR:
+          required: true
+          type: string
+
+env:
+  MY_VAR: hola mundo
+  ORG_VAR: hola mundo2
+jobs:
+  echo-data:
+    runs-on: ubuntu-latest
+    steps:          
+      - name: Show Info
+        run: |
+          echo "Nombre del evento: ${{ github.event.name }}"
+          echo "Ref: ${{ github.action_ref }}"
+          echo "SHA: ${{ github.sha }}"
+          echo "Actor: ${{ github.actor }}"
+          echo "Flujo de trabajo: ${{ github.workflow }}"
+          echo "ID de ejecución: ${{ github.run_number }}"
+          echo "Número de ejecución: ${{ github.run_number }}"
+      - name: Retrieve Variable
+        run: |
+          echo "MY_VAR: $MY_VAR"
+          echo "ORG_VAR: $ORG_VAR"
+
+
