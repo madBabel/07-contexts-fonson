@@ -1,14 +1,13 @@
 name: 07 - Contexts
+run-name: 07 - Contexts | DEBUG - ${{ inputs.debug }}
 on:
   push:
   workflow_dispatch:
-      inputs:
-        MY_VAR:
-          required: true
-          type: string
-        ORG_VAR:
-          required: true
-          type: string
+    inputs:
+      debug:
+        description: 'Debug mode'
+        type: boolean           
+        default: false
 
 env:
   MY_VAR: hola mundo
